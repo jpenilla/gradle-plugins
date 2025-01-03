@@ -89,7 +89,7 @@ abstract class LocalizationGenerate : DefaultTask() {
             }
             val path = it.relativePath
 
-            val packageName = path.parent.segments.joinToString(".").toLowerCase(Locale.ROOT)
+            val packageName = path.parent.segments.joinToString(".").lowercase(Locale.ROOT)
             val className = path.lastName.split('.', limit = 2).first().capitalize()
             val destinationPath = path.replaceLastName("$className.${templateType.get().extension}").getFile(generatedSourcesOut.asFile.get())
 
@@ -102,7 +102,7 @@ abstract class LocalizationGenerate : DefaultTask() {
                 "bundleName" to "$packageName.${path.lastName.split('.', limit = 2).first()}",
                 "packageName" to packageName,
                 "className" to className,
-                "keys" to propertiesFile.keys
+                "keys" to propertiesFile.keys,
             )
 
             destinationPath.parentFile.mkdirs()
