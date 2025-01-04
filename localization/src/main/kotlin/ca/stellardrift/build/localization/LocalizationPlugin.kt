@@ -104,7 +104,7 @@ abstract class LocalizationGenerate : DefaultTask() {
                 "bundleName" to "$packageName.${path.lastName.split('.', limit = 2).first()}",
                 "packageName" to packageName,
                 "className" to className,
-                "keys" to propertiesFile.keys
+                "keys" to propertiesFile.keys,
             )
 
             destinationPath.parentFile.mkdirs()
